@@ -15,13 +15,13 @@ MonoBehaviour:
   stepsPerFrame: 2
   width: 1920
   height: 1080
-  numAgents: 250000
+  numAgents: 300000
   spawnMode: 2
   trailWeight: 5
   decayRate: 0.2
   diffuseRate: 3
   speciesSettings:
-  - moveSpeed: 20
+  - moveSpeed: 60
     turnSpeed: 2
     sensorAngleSpacing: 30
     sensorOffsetDst: 35

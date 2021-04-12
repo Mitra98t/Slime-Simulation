@@ -4,7 +4,7 @@ using ComputeShaderUtility;
 
 public class Simulation : MonoBehaviour
 {
-	public enum SpawnMode { Random, Point, InwardCircle, RandomCircle }
+	public enum SpawnMode { Random, Point, InwardCircle, RandomCircle, TopLeftRandom, TopLeftToCentre }
 
 	const int updateKernel = 0;
 	const int diffuseMapKernel = 1;
@@ -71,6 +71,16 @@ public class Simulation : MonoBehaviour
 			{
 				startPos = centre + Random.insideUnitCircle * settings.height * 0.15f;
 				angle = randomAngle;
+			}
+			else if (settings.spawnMode == SpawnMode.TopLeftRandom)
+			{
+				startPos = new Vector2(settings.width / 30, settings.height - settings.height / 30);
+				angle = randomAngle;
+			}
+			else if (settings.spawnMode == SpawnMode.TopLeftToCentre)
+			{
+				startPos = new Vector2(settings.width / 10, settings.height - settings.height / 10);
+				angle = Mathf.Atan2((centre - startPos).normalized.y, (centre - startPos).normalized.x);
 			}
 
 			Vector3Int speciesMask;
